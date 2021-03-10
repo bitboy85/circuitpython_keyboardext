@@ -6,6 +6,7 @@ It supports latin-1 char set https://en.wikipedia.org/wiki/ISO/IEC_8859-1
 
 # Installation
 Just copy keyboardext.py, en_us.py and the layout you want to your lib/adafruit_hid folder on your circuitpython device.
+If you need extra space on your device you can safely delete the existing keyboard.py and keyboard_layout_us.py
 
 # Example
 ```python
