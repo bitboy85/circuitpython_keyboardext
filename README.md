@@ -22,7 +22,7 @@ kbd.setLayout("en_us")
 kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
 ```
 # Add new layout
-Adding a new layout is easy. Just copy an existing layout file like de_de.py, edit the key combinations use it with 
+Adding a new layout is easy. Just copy an existing layout file like de_de.py, edit the key combinations and use it with 
 ```python
 kbd.setLayout(yourfilename) 
 ```
@@ -33,3 +33,8 @@ Of course it can be send as single command.
 kbd.send(keycode.Keycode.E, keycode.Keycode.RIGHT_ALT)
 ```
 char mapping in the provided keyboard layouts may be incomplete (but easy to fix)
+
+in my setup i have troubles with the imports. it only works if the "long" version is provided.
+
+# Tested device
+- Raspberry Pi pico; Adafruit CircuitPython 6.2.0-beta.2
