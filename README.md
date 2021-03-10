@@ -21,10 +21,15 @@ kbd.send(0x28)
 kbd.setLayout("en_us")
 kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
 ```
-
-# known issues
+# Add new layout
+Adding a new layout is easy. Just copy an existing layout file like de_de.py, edit the key combinations use it with 
+```python
+kbd.setLayout(yourfilename) 
+```
+# Known issues
 The € symbol is not part of the charset above, so by now i can't be used within the write method of the keyboard.
 Of course it can be send as single command.
+```python
 kbd.send(keycode.Keycode.E, keycode.Keycode.RIGHT_ALT)
-
+```
 char mapping in the provided keyboard layouts may be incomplete (but easy to fix)
