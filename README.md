@@ -1,11 +1,23 @@
 # circuitpython_keyboardext
-keyboard with layout change
 
-This implementation allows to add and change different keyboard layouts to be used with circuit python.
-It supports latin-1 char set https://en.wikipedia.org/wiki/ISO/IEC_8859-1
+This implementation allows to send strings as keyboard input for different layouts.
+As Layout ether a python dictionary or a list can be used. See provided layouts as example.
+
+* List: Uses less memory and has latin-1 charset https://en.wikipedia.org/wiki/ISO/IEC_8859-1
+* Dictionary: Charset can be self defined (based on UTF-8) uses a bit more memory but depends on how many characters are defined.
+
+Both variants allow to use deadkeys, for eample ^ followed by a to get the â character.
+
+NOTE: Latin-1 has no € symbol
+
+
+
+# Requirement
+This library needs adafruit_hid installed in the lib folder of your device.
+Used on a Pi Pico, it uses about 12kb of ram.
 
 # Installation
-Just copy keyboardext.py, en_us.py and the layout you want to your lib/adafruit_hid folder on your circuitpython device.
+Just copy keyboardext.py, en_us.py and the layout you want to your lib/keyboardext folder on your circuitpython device.
 If you need extra space on your device you can safely delete the existing keyboard.py and keyboard_layout_us.py
 
 # Example
@@ -34,8 +46,6 @@ Of course it can be send as single command.
 kbd.send(keycode.Keycode.E, keycode.Keycode.RIGHT_ALT)
 ```
 char mapping in the provided keyboard layouts may be incomplete (but easy to fix)
-
-in my setup i have troubles with the imports. it only works if the "long" version is provided.
 
 # Tested device
 - Raspberry Pi pico; Adafruit CircuitPython 6.2.0-beta.2
