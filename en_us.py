@@ -1,9 +1,21 @@
+# SPDX-FileCopyrightText: 2020, Bitboy85
+#
+# SPDX-License-Identifier: MIT
+
+"""
+=======================================================
 # The index of the array represents the 8-bit ascii code.
 # The tupple of each index represents the keys needed to be pressed for this ascii character
 # For example: on german layouts @ is written by ALT_R(AltGr) + q
-# keycodes of 0x00 are ignored, those represent non-printable characters or characters which cannot be entered by key combination
+# keycodes of 0x00 are ignored, those represent non-printable chars or characters which cannot be entered by key combination
+#
+# Deadkeys: For characters which require some keypresses one after another, for example â is written on a german layout by
+# pressing ^ followed by a just use a double-tuple as keycode. so â is done with: "â" : ((0x35),(0x04)),
+#
+* Author(s): Bitboy85
+"""
 
-from keycode import Keycode
+from adafruit_hid.keycode import Keycode
 
 asciiToKeycode = [
 	(0x00),             # NUL

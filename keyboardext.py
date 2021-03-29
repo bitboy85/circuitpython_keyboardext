@@ -12,9 +12,9 @@
 import time
 from micropython import const
 
-from .keycode import Keycode
+from adafruit_hid.keycode import Keycode
 
-from . import find_device
+from adafruit_hid import find_device
 
 _MAX_KEYPRESSES = const(6)
 
@@ -56,25 +56,70 @@ class Keyboardext:
             self.release_all()
 
         # Set default layout
-        self._layout = "en_us"
-        self._asciimap = __import__(self._layout)
+        # self._layout = "en_us"
+        # self._asciimap = __import__("keyboardext/" + self._layout)
 
-    def setLayout(self, layout):
-        self._asciimap = __import__(layout)
+    def set_layout(self, layout):
+        """Sets the layout of the keyboard object. The string must match
+           the name of the mapping file.
+        """        
+        self._asciimap = __import__("keyboardext/" + layout)
         self._layout = layout
 
-    def getLayout(self):
+    def get_layout(self):
+        """Returns the selected layout as string
+        """   
         return self._layout
 
     def write(self, string):
+        """Type the string by pressing and releasing keys on my keyboard.
+
+        :param string: A string of ASCII characters.
+
+        Example::
+
+            # Write abc to the keyboard
+            keyboard.write('abc')
+        """
+
+        if self._layout == "":
+            print("Error: No layout selected.")
+            return
+
+        if isinstance(self._asciimap.asciiToKeycode, list):
+            isList = True
+        elif isinstance(self._asciimap.asciiToKeycode, dict):
+            isList = False
+
         for char in string:
-            ascii = ord(str(char, "ascii"))            
-            if (ascii > 255): continue
-            keycodes = self._asciimap.asciiToKeycode[ascii]
-            if isinstance(keycodes, tuple):
-                self.send(*keycodes)    # tuples needs to be unpacked by *
+            if isList:
+                ascii_num = ord(str(char, "ascii"))            
+                if (ascii_num > 255): continue  # in case the character is not part of latin-1 charset
+                keycodes = self._asciimap.asciiToKeycode[ascii_num]
             else:
-                self.send(keycodes)     # send a single keycode as int
+                keycodes = self._asciimap.asciiToKeycode[char]
+
+            if isinstance(keycodes, tuple):
+                if isinstance(keycodes[0], tuple):      #tuple of tuples = DEADKEYS
+                    for item in keycodes:
+                        self.send(*item)
+                else:        
+                    self.send(*keycodes)    # tuples needs to be unpacked by *
+            else:
+                self.send(keycodes)     # send a single keycode as int            
+
+    def writeln(self, string):
+        """Type the string by pressing and releasing keys on my keyboard.
+
+        :param string: A string of ASCII characters.
+
+        Example::
+
+            # Write abc followed by RETURN to the keyboard
+            keyboard.writeln('abc')
+        """
+        self.write(string)
+        self.send(Keycode.ENTER)
 
     def press(self, *keycodes):
         """Send a report indicating that the given keys have been pressed.
