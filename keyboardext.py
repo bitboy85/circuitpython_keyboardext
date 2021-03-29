@@ -53,8 +53,9 @@ class Keyboardext:
             self.release_all()
         except OSError:
             time.sleep(1)
-            self.release_all()
+            self.release_all()  
 
+        self._layout = ""
         # Set default layout
         # self._layout = "en_us"
         # self._asciimap = __import__("keyboardext/" + self._layout)
@@ -99,12 +100,14 @@ class Keyboardext:
             else:
                 keycodes = self._asciimap.asciiToKeycode[char]
 
-            if isinstance(keycodes, tuple):
-                if isinstance(keycodes[0], tuple):      #tuple of tuples = DEADKEYS
-                    for item in keycodes:
+            if isinstance(keycodes, list):  # list of tuples = DEADKEYS                 
+                for item in keycodes:
+                    if isinstance(item, tuple):
                         self.send(*item)
-                else:        
-                    self.send(*keycodes)    # tuples needs to be unpacked by *
+                    else:
+                        self.send(item)
+            elif isinstance(keycodes, tuple):        
+                self.send(*keycodes)    # tuples needs to be unpacked by *
             else:
                 self.send(keycodes)     # send a single keycode as int            
 
