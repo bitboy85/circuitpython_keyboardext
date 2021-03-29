@@ -24,14 +24,14 @@ If you need extra space on your device you can safely delete the existing keyboa
 ```python
 import usb_hid
 
-from adafruit_hid import keyboardext
-from adafruit_hid import keycode
+from keyboardext.keyboardext import Keyboardext
+from adafruit_hid.keycode import Keycode
 
-kbd = keyboardext.Keyboardext(usb_hid.devices)
-kbd.setLayout("de_de")
+kbd = Keyboardext(usb_hid.devices)
+kbd.set_layout("de_de")
 kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
-kbd.send(0x28)
-kbd.setLayout("en_us")
+kbd.send(Keycode.ENTER)
+kbd.set_layout("en_us")
 kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
 ```
 # Add new layout
