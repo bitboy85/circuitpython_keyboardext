@@ -34,6 +34,11 @@ kbd.send(Keycode.ENTER)
 kbd.set_layout("en_us")
 kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
 ```
+
+# Current Layouts
+* en_us   - list
+* de_de   - list, dictionary
+
 # Add new layout
 Adding a new layout is easy. Just copy an existing layout file like de_de.py, edit the key combinations and use it with 
 ```python
