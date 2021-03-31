@@ -18,7 +18,7 @@ This library needs adafruit_hid installed in the lib folder of your device.
 Used on a Pi Pico, it uses about 12kb of ram.
 
 # Installation
-Just copy keyboardext.py, en_us.py and the layout you want to your lib/keyboardext folder on your circuitpython device.
+Just copy keyboardext.py and the layouts you want to your lib/keyboardext folder on your circuitpython device.
 If you need extra space on your device you can safely delete the existing keyboard.py and keyboard_layout_us.py
 
 # Example
