@@ -14,6 +14,7 @@ NOTE: Latin-1 has no € symbol
 
 # Requirement
 This library needs adafruit_hid installed in the lib folder of your device.
+
 Used on a Pi Pico, it uses about 12kb of ram.
 
 # Installation
