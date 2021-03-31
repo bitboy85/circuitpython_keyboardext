@@ -28,9 +28,11 @@ from keyboardext.keyboardext import Keyboardext
 from adafruit_hid.keycode import Keycode
 
 kbd = Keyboardext(usb_hid.devices)
-kbd.set_layout("de_de")
-kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
+kbd.set_layout("dict_de")
+kbd.writeln("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
+kbd.write("# Deadkeys: â ê Á É à è À È î Î Ô")
 kbd.send(Keycode.ENTER)
+kbd.write("en_us: ")
 kbd.set_layout("en_us")
 kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
 ```
