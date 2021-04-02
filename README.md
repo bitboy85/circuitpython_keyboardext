@@ -45,7 +45,7 @@ kbd.write("# German: #_:;<>|^!$%&/()=?`zY°ÜÖÄüöäßµ²³")
 # Add new layout
 Adding a new layout is easy. Just copy an existing layout file like de_de.py, edit the key combinations and use it with 
 ```python
-kbd.setLayout(yourfilename) 
+kbd.set_layout(yourfilename) 
 ```
 # Known issues
 The € symbol is not part of the charset above, so by now i can't be used within the write method of the keyboard.
