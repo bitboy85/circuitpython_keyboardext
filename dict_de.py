@@ -15,9 +15,8 @@
 * Author(s): Bitboy85
 """
 
-from adafruit_hid.keycode import Keycode
-L_SHIFT = Keycode.LEFT_SHIFT
-R_ALT = Keycode.RIGHT_ALT
+R_ALT   = 0xE6
+L_SHIFT = 0xE1
 
 asciiToKeycode = {                            
 	" " : (0x2c),		    # SPACE
@@ -163,6 +162,8 @@ asciiToKeycode = {
 }
 
 """
+    Characterlist for copy-paste
+
 	"BS"  : (0x2a),         # BS	Backspace
 	"TAB" : (0x2b),         # TAB	Tab
 	"LF"  : (0x28),         # LF	Enter

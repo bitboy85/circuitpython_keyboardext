@@ -15,7 +15,8 @@
 * Author(s): Bitboy85
 """
 
-from adafruit_hid.keycode import Keycode
+R_ALT   = 0xE6
+L_SHIFT = 0xE1
 
 asciiToKeycode = [
 	(0x00),             # NUL
@@ -51,102 +52,102 @@ asciiToKeycode = [
 	(0x00),             # RS
 	(0x00),             # US
 
-	(0x2c),		                    # SPACE
-	(0x1e, Keycode.LEFT_SHIFT),	    # !
-	(0x1f, Keycode.LEFT_SHIFT),	    # "
-	(0x31),                         # #
-	(0x21, Keycode.LEFT_SHIFT),     # $
-	(0x22, Keycode.LEFT_SHIFT),     # %
-	(0x23, Keycode.LEFT_SHIFT),     # &
-	(0x31, Keycode.LEFT_SHIFT),     # '
-	(0x25, Keycode.LEFT_SHIFT),     # (
-	(0x26, Keycode.LEFT_SHIFT),     # )
-	(0x30, Keycode.LEFT_SHIFT),     # *
-	(0x30),                         # +
-	(0x36),                         # ,
-	(0x38),                         # -
-	(0x37),                         # .
-	(0x24, Keycode.LEFT_SHIFT),     # /
-	(0x27),                         # 0
-	(0x1e),                         # 1
-	(0x1f),                         # 2
-	(0x20),                         # 3
-	(0x21),                         # 4
-	(0x22),                         # 5
-	(0x23),                         # 6
-	(0x24),                         # 7
-	(0x25),                         # 8
-	(0x26),                         # 9
-	(0x37, Keycode.LEFT_SHIFT),     # :
-	(0x36, Keycode.LEFT_SHIFT),     # ;
-	(0x64),                         # <
-	(0x27, Keycode.LEFT_SHIFT),     # =
-	(0x64, Keycode.LEFT_SHIFT),     # >
-	(0x2d, Keycode.LEFT_SHIFT),     # ?
-	(0x14, Keycode.RIGHT_ALT),      # @
-	(0x04, Keycode.LEFT_SHIFT),     # A
-	(0x05, Keycode.LEFT_SHIFT),     # B
-	(0x06, Keycode.LEFT_SHIFT),     # C
-	(0x07, Keycode.LEFT_SHIFT),     # D
-	(0x08, Keycode.LEFT_SHIFT),     # E
-	(0x09, Keycode.LEFT_SHIFT),     # F
-	(0x0a, Keycode.LEFT_SHIFT),     # G
-	(0x0b, Keycode.LEFT_SHIFT),     # H
-	(0x0c, Keycode.LEFT_SHIFT),     # I
-	(0x0d, Keycode.LEFT_SHIFT),     # J
-	(0x0e, Keycode.LEFT_SHIFT),     # K
-	(0x0f, Keycode.LEFT_SHIFT),     # L
-	(0x10, Keycode.LEFT_SHIFT),     # M
-	(0x11, Keycode.LEFT_SHIFT),     # N
-	(0x12, Keycode.LEFT_SHIFT),     # O
-	(0x13, Keycode.LEFT_SHIFT),     # P
-	(0x14, Keycode.LEFT_SHIFT),     # Q
-	(0x15, Keycode.LEFT_SHIFT),     # R
-	(0x16, Keycode.LEFT_SHIFT),     # S
-	(0x17, Keycode.LEFT_SHIFT),     # T
-	(0x18, Keycode.LEFT_SHIFT),     # U
-	(0x19, Keycode.LEFT_SHIFT),     # V
-	(0x1a, Keycode.LEFT_SHIFT),     # W
-	(0x1b, Keycode.LEFT_SHIFT),     # X
-	(0x1d, Keycode.LEFT_SHIFT),     # Y
-	(0x1c, Keycode.LEFT_SHIFT),     # Z
-	(0x25, Keycode.RIGHT_ALT),      # [
-	(0x2d, Keycode.RIGHT_ALT),      # bslash \
-	(0x26, Keycode.RIGHT_ALT),      # ]
-	(0x35),                         # ^
-	(0x38, Keycode.LEFT_SHIFT),     # _
-	(0x2e, Keycode.LEFT_SHIFT),     # `
-	(0x04),                         # a
-	(0x05),                         # b
-	(0x06),                         # c
-	(0x07),                         # d
-	(0x08),                         # e
-	(0x09),                         # f
-	(0x0a),                         # g
-	(0x0b),                         # h
-	(0x0c),                         # i
-	(0x0d),                         # j
-	(0x0e),                         # k
-	(0x0f),                         # l
-	(0x10),                         # m
-	(0x11),                         # n
-	(0x12),                         # o
-	(0x13),                         # p
-	(0x14),                         # q
-	(0x15),                         # r
-	(0x16),                         # s
-	(0x17),                         # t
-	(0x18),                         # u
-	(0x19),                         # v
-	(0x1a),                         # w
-	(0x1b),                         # x
-	(0x1d),                         # y
-	(0x1c),                         # z
-	(0x24, Keycode.RIGHT_ALT),      # {
-	(0x64, Keycode.RIGHT_ALT),      # |
-	(0x27, Keycode.RIGHT_ALT),      # }
-	(0x30, Keycode.RIGHT_ALT),      # ~
-	(0x4c),				            # DEL
+	(0x2c),		        # SPACE
+	(0x1e, L_SHIFT),	# !
+	(0x1f, L_SHIFT),	# "
+	(0x31),             # #
+	(0x21, L_SHIFT),    # $
+	(0x22, L_SHIFT),    # %
+	(0x23, L_SHIFT),    # &
+	(0x31, L_SHIFT),    # '
+	(0x25, L_SHIFT),    # (
+	(0x26, L_SHIFT),    # )
+	(0x30, L_SHIFT),    # *
+	(0x30),             # +
+	(0x36),             # ,
+	(0x38),             # -
+	(0x37),             # .
+	(0x24, L_SHIFT),    # /
+	(0x27),             # 0
+	(0x1e),             # 1
+	(0x1f),             # 2
+	(0x20),             # 3
+	(0x21),             # 4
+	(0x22),             # 5
+	(0x23),             # 6
+	(0x24),             # 7
+	(0x25),             # 8
+	(0x26),             # 9
+	(0x37, L_SHIFT),    # :
+	(0x36, L_SHIFT),    # ;
+	(0x64),             # <
+	(0x27, L_SHIFT),    # =
+	(0x64, L_SHIFT),    # >
+	(0x2d, L_SHIFT),    # ?
+	(0x14, R_ALT),      # @
+	(0x04, L_SHIFT),    # A
+	(0x05, L_SHIFT),    # B
+	(0x06, L_SHIFT),    # C
+	(0x07, L_SHIFT),    # D
+	(0x08, L_SHIFT),    # E
+	(0x09, L_SHIFT),    # F
+	(0x0a, L_SHIFT),    # G
+	(0x0b, L_SHIFT),    # H
+	(0x0c, L_SHIFT),    # I
+	(0x0d, L_SHIFT),    # J
+	(0x0e, L_SHIFT),    # K
+	(0x0f, L_SHIFT),    # L
+	(0x10, L_SHIFT),    # M
+	(0x11, L_SHIFT),    # N
+	(0x12, L_SHIFT),    # O
+	(0x13, L_SHIFT),    # P
+	(0x14, L_SHIFT),    # Q
+	(0x15, L_SHIFT),    # R
+	(0x16, L_SHIFT),    # S
+	(0x17, L_SHIFT),    # T
+	(0x18, L_SHIFT),    # U
+	(0x19, L_SHIFT),    # V
+	(0x1a, L_SHIFT),    # W
+	(0x1b, L_SHIFT),    # X
+	(0x1d, L_SHIFT),    # Y
+	(0x1c, L_SHIFT),    # Z
+	(0x25, R_ALT),      # [
+	(0x2d, R_ALT),      # bslash \
+	(0x26, R_ALT),      # ]
+	(0x35),             # ^
+	(0x38, L_SHIFT),    # _
+	(0x2e, L_SHIFT),    # `
+	(0x04),             # a
+	(0x05),             # b
+	(0x06),             # c
+	(0x07),             # d
+	(0x08),             # e
+	(0x09),             # f
+	(0x0a),             # g
+	(0x0b),             # h
+	(0x0c),             # i
+	(0x0d),             # j
+	(0x0e),             # k
+	(0x0f),             # l
+	(0x10),             # m
+	(0x11),             # n
+	(0x12),             # o
+	(0x13),             # p
+	(0x14),             # q
+	(0x15),             # r
+	(0x16),             # s
+	(0x17),             # t
+	(0x18),             # u
+	(0x19),             # v
+	(0x1a),             # w
+	(0x1b),             # x
+	(0x1d),             # y
+	(0x1c),             # z
+	(0x24, R_ALT),      # {
+	(0x64, R_ALT),      # |
+	(0x27, R_ALT),      # }
+	(0x30, R_ALT),      # ~
+	(0x4c),				# DEL
     (0x00), # [NOT printable] in some docs shown as € symbol, but not so in python
     (0x00), # [not printable]
     (0x00), # ‚
@@ -186,7 +187,7 @@ asciiToKeycode = [
     (0x00), # ¤
     (0x00), # ¥
     (0x00), # ¦
-    (0x20, Keycode.LEFT_SHIFT),     # §
+    (0x20, L_SHIFT),    # §
     (0x00), # ¨
     (0x00), # ©
     (0x00), # ª
@@ -195,12 +196,12 @@ asciiToKeycode = [
     (0x00), # [not printable]
     (0x00), # ®
     (0x00), # ¯
-    (0x35, Keycode.LEFT_SHIFT),     # °
+    (0x35, L_SHIFT),    # °
     (0x00), # ±
-    (0x1f, Keycode.RIGHT_ALT),      # ²
-    (0x20, Keycode.RIGHT_ALT),      # ³
-    (0x2e),                         # ´
-    (0x10, Keycode.RIGHT_ALT),      # µ
+    (0x1f, R_ALT),      # ²
+    (0x20, R_ALT),      # ³
+    (0x2e),             # ´
+    (0x10, R_ALT),      # µ
     (0x00), # ¶
     (0x00), # ·
     (0x00), # ¸
@@ -215,7 +216,7 @@ asciiToKeycode = [
     (0x00), # Á
     (0x00), # Â
     (0x00), # Ã
-    (0x34, Keycode.LEFT_SHIFT),     # Ä
+    (0x34, L_SHIFT),     # Ä
     (0x00), # Å
     (0x00), # Æ
     (0x00), # Ç
@@ -233,21 +234,21 @@ asciiToKeycode = [
     (0x00), # Ó
     (0x00), # Ô
     (0x00), # Õ
-    (0x33, Keycode.LEFT_SHIFT),     # Ö
+    (0x33, L_SHIFT),    # Ö
     (0x00), # ×
     (0x00), # Ø
     (0x00), # Ù
     (0x00), # Ú
     (0x00), # Û
-    (0x2f, Keycode.LEFT_SHIFT),     # Ü
+    (0x2f, L_SHIFT),    # Ü
     (0x00), # Ý
     (0x00), # Þ
-    (0x2d),                         # ß
+    (0x2d),             # ß
     (0x00), # à
     (0x00), # á
     (0x00), # â
     (0x00), # ã
-    (0x34),                         # ä
+    (0x34),             # ä
     (0x00), # å
     (0x00), # æ
     (0x00), # ç
@@ -265,13 +266,13 @@ asciiToKeycode = [
     (0x00), # ó
     (0x00), # ô
     (0x00), # õ
-    (0x33),                         # ö
+    (0x33),             # ö
     (0x00), # ÷
     (0x00), # ø
     (0x00), # ù
     (0x00), # ú
     (0x00), # û
-    (0x2f),                         # ü
+    (0x2f),             # ü
     (0x00), # ý
     (0x00), # þ
     (0x00)  # ÿ
